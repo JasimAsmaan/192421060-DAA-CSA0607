@@ -1,1 +1,17 @@
-
+Dataset_Size,Algorithm,Execution_Time_Microseconds,Comparisons,Result
+1000,Linear Search,,,
+1000,Iterative Binary Search,,,
+1000,Recursive Binary Search,,,
+1000,Hash Table Search,,,
+10000,Linear Search,,,
+10000,Iterative Binary Search,,,
+10000,Recursive Binary Search,,,
+10000,Hash Table Search,,,
+100000,Linear Search,,,
+100000,Iterative Binary Search,,,
+100000,Recursive Binary Search,,,
+100000,Hash Table Search,,,
+1000000,Linear Search,,,
+1000000,Iterative Binary Search,,,
+1000000,Recursive Binary Search,,,
+1000000,Hash Table Search,,,
