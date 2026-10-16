@@ -1,91 +1,80 @@
 
 # Task 5: Asymptotic Analysis
 
-## 1. Introduction
+## 1. Objective
 
-Asymptotic analysis describes how an algorithm's running time or operation count grows as the input size n becomes large. It allows us to compare algorithms without depending on a particular computer or programming language.
+To analyse the growth rate of Linear Search, Iterative Binary Search, Recursive Binary Search, and Hash Table Search using asymptotic notations and compare their theoretical performance for large student databases.
 
-The three commonly used notations are Big O, Big Omega and Big Theta.
+## 2. Asymptotic Notations
 
-## 2. Big O Notation
+### Big-O Notation — O
 
-Big O represents an asymptotic upper bound on an algorithm's growth rate.
-
-Formally, f(n) = O(g(n)) if there exist positive constants c and n0 such that:
-
-0 <= f(n) <= c * g(n), for all n >= n0.
+Big-O represents an asymptotic upper bound on the growth of an algorithm.
 
 Example:
+Linear Search has worst-case time complexity O(n).
 
-Linear Search has a worst-case running time of O(n), because it may examine every element.
+### Big-Omega Notation — Ω
 
-## 3. Big Omega Notation
-
-Big Omega represents an asymptotic lower bound.
-
-Formally, f(n) = Ω(g(n)) if there exist positive constants c and n0 such that:
-
-0 <= c * g(n) <= f(n), for all n >= n0.
+Big-Omega represents an asymptotic lower bound on the growth of an algorithm.
 
 Example:
+Linear Search has best-case time complexity Ω(1).
 
-Linear Search has a best-case running time of Ω(1), because the target may be the first element.
+### Big-Theta Notation — Θ
 
-## 4. Big Theta Notation
-
-Big Theta represents a tight asymptotic bound when the function is bounded both above and below by constant multiples of the same growth function.
-
-Formally, f(n) = Θ(g(n)) when f(n) = O(g(n)) and f(n) = Ω(g(n)).
+Big-Theta represents a tight asymptotic bound when upper and lower bounds have the same growth rate.
 
 Example:
+Binary Search has Θ(log n) average and worst-case time complexity.
 
-The worst-case running time of Linear Search is Θ(n), because its operation count grows linearly with n.
+## 3. Complexity of Searching Algorithms
 
-## 5. Asymptotic Analysis of the Three Algorithms
+| Algorithm | Best Case | Average Case | Worst Case |
+|---|---|---|---|
+| Linear Search | Θ(1) | Θ(n) | Θ(n) |
+| Iterative Binary Search | Θ(1) | Θ(log n) | Θ(log n) |
+| Recursive Binary Search | Θ(1) | Θ(log n) | Θ(log n) |
+| Hash Table Search | Expected Θ(1) | Expected Θ(1) | Θ(n) |
 
-### 5.1 Linear Search
+Hash Table Search achieves expected constant-time lookup under suitable hashing and load-factor assumptions. Its worst case is linear.
 
-- Best case: Θ(1)
-- Average case: Θ(n)
-- Worst case: Θ(n)
+Binary Search requires sorted input. If sorting is necessary, its preprocessing cost must be included in the overall analysis.
 
-The number of comparisons increases approximately in proportion to the number of records.
+## 4. Theoretical Growth Graph
 
-### 5.2 Recursive Binary Search
+The following graph illustrates representative growth rates for linear and logarithmic search operations. It is a theoretical illustration, not measured benchmark data.
 
-- Best case: Θ(1)
-- Average case: Θ(log n)
-- Worst case: Θ(log n)
+- Linear Search: f(n) = n
+- Binary Search: g(n) = log₂(n)
 
-Binary Search requires sorted data and repeatedly reduces the search interval by half.
+The graph compares growth rates rather than actual execution times.
 
-### 5.3 Hash Table Search
+## 5. Estimated Maximum Search Steps
 
-- Best case: Θ(1)
-- Average expected case: Θ(1), assuming a suitable hash function and controlled load factor.
-- Worst case: Θ(n), when severe collisions require examining many entries.
+For Linear Search, the worst case examines all n records.
 
-## 6. Growth Comparison
+For Binary Search, the maximum number of search levels is approximately ceil(log₂(n + 1)).
 
-| Input Size (n) | Linear Search Worst-Case Comparisons | Binary Search Approximate Maximum Levels |
+| Number of Records (n) | Linear Search Worst-Case Comparisons | Binary Search Approximate Maximum Levels |
 |---:|---:|---:|
 | 1,000 | 1,000 | 10 |
 | 10,000 | 10,000 | 14 |
 | 100,000 | 100,000 | 17 |
 | 1,000,000 | 1,000,000 | 20 |
 
-The binary-search figures use ceil(log2(n + 1)) as an approximate maximum comparison count for an unsuccessful search in a conventional binary-search implementation.
+These are theoretical estimates, not experimentally measured values. Exact binary-search comparison counts depend on the implementation and search outcome.
 
-## 7. Interpretation for Large Datasets
+## 6. Interpretation
 
-When the database grows from 1,000 to 1,000,000 records, Linear Search may need to inspect one million records in the worst case.
+Linear Search grows proportionally with the number of records. It can be effective for small or unsorted datasets but becomes expensive for large databases.
 
-Binary Search requires only about 20 comparisons for a dataset of one million sorted records.
+Binary Search reduces the search interval by approximately half in each iteration or recursive call. Its logarithmic growth makes it suitable for large sorted datasets.
 
-Hash Table Search can provide constant expected lookup time, but its performance depends on hash distribution, collision handling and load factor. The cost of building or updating the table must also be considered.
+Hash Table Search provides expected constant-time lookup when hashing distributes keys effectively. However, its construction, memory usage, collisions, and worst-case behaviour must also be considered.
 
-## 8. Conclusion
+## 7. Conclusion
 
-Asymptotic analysis shows that Binary Search and Hash Table Search can reduce the work needed for repeated lookups compared with Linear Search. The final algorithm selection must also consider preprocessing costs, record updates and experimental performance.
+Asymptotic analysis shows that Binary Search scales much better than Linear Search for large sorted datasets. Hash Table Search can provide expected constant-time lookup and is a strong candidate for frequent student-record queries.
 
-
+The final recommendation should also consider preprocessing costs and the actual benchmark results collected in Task 9.
