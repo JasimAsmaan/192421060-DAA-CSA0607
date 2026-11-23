@@ -1,1 +1,0 @@
-No screenshots have been fabricated. Run each script and capture the terminal output and relevant source code. Save genuine images in each question's Output_Screenshots folder. The assignment specifically expects output screenshots.

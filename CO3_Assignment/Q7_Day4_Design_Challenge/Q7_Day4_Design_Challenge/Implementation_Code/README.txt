@@ -1,1 +1,0 @@
-Q7 implementation depends on the actual Day-4 Design Challenge problem statement, which was not present in the supplied assignment document. Do not invent an implementation. Add the joint implementation after both students document independent designs and agree on the final algorithm.

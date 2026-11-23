@@ -1,8 +1,0 @@
-{
-  "log": "FAILFAIXFAIL",
-  "pattern": "FAIL",
-  "expected_positions": [
-    0,
-    8
-  ]
-}
